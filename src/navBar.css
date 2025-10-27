@@ -1,0 +1,30 @@
+.main{
+ 
+ display: flex;
+ flex-direction: row;
+ padding:10px;
+ border-bottom: 0.5px solid whitesmoke;
+ height:30px;
+
+}
+
+.slider{
+
+   margin-right:30px ;
+
+
+
+}
+
+.selectionList{
+
+margin-right:30px;
+
+}
+
+.sortButton{
+
+margin-right:30px;
+border-color:white;
+
+}
