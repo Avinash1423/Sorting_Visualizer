@@ -8,92 +8,85 @@ const{array,setArray,setHighlighted,speed,setSorted}=useContext(ArrayContext);
 const sleep=(ms)=>new Promise((resolve=>setTimeout(resolve,ms)));  
 let arrayCopy=[...array];
 
-const mergeSortFunction=()=>{
+const mergeSortFunction=async()=>{
 
  
+const mergeSort=async(arrayCopy,start,end)=> {
+
+if(start >= end) return;
+
+let middle=Math.floor((start+end)/2);
 
 
-const mergeSort=(arrayCopy)=> {
+await mergeSort(arrayCopy,start,middle);    // merge sort left array//outcome?
+await mergeSort(arrayCopy,middle+1,end);// merge right  array
 
-if(arrayCopy.length<=1) return;
-
-let middle=Math.floor(arrayCopy.length/2);
-
-let leftArray=new Array(middle);
-let rightArray=new Array(arrayCopy.length-middle);
-
-
-for(let i=0;i<arrayCopy.length;i++){
-
-     if(i<middle) {
-      leftArray[i]=arrayCopy[i];
-        
-     }
-     else{
-       rightArray[i-middle]=arrayCopy[i];
-     }
-
-}
-
-
-
-mergeSort(leftArray);
-mergeSort(rightArray);
-
-
-merge(leftArray,rightArray,arrayCopy);
+await merge(arrayCopy,start,middle,end);
 
     }
     
-       mergeSort(arrayCopy);
-       setArray(arrayCopy);
+  await mergeSort(arrayCopy,0,arrayCopy.length-1); //* start
+       setArray([...arrayCopy]); 
+     setHighlighted({i:null,j:null});  
+     setSorted([...Array(arrayCopy.length).keys()]);
    
-
 }
 
 
-const merge=async(leftArray,rightArray,arrayCopy)=>{
+const merge=async(arrayCopy,start,middle,end)=>{
 
-    
-   let r=0;
+
+    let leftArray=arrayCopy.slice(start,middle+1);
+    let rightArray=arrayCopy.slice(middle+1,end+1);
+
+
    let l=0;
-   let i=0;
+   let r=0;
+   let i=start;
 
-   setSorted(prev=>[...prev,arrayCopy]);
 
    while(l<leftArray.length && r<rightArray.length){
 
-       if(leftArray[l]<=rightArray[r]){
+     setHighlighted({i:l,j:r});
+     await sleep(speed);
 
-        arrayCopy[i]=leftArray[l];
-        l++;
+   if(leftArray[l]<=rightArray[r]){
 
-       }
-       else if(rightArray[r]<leftArray[l]){
+      arrayCopy[i++]=leftArray[l++];
 
-        arrayCopy[i]=rightArray[r];
-        r++;
-
-       }
-
-      i++;
-
-      
    }
+   else{
 
-   while(l<leftArray.length)
-    {  
-    arrayCopy[i++]=leftArray[l++];
-      
-    }
-
-     while(r<rightArray.length)
-        {
-    arrayCopy[i++]=rightArray[r++];
+      arrayCopy[i++]=rightArray[r++]
+   }
+   setArray([...arrayCopy]); 
    
 
-        }
+   
+}
 
+   while(l<leftArray.length){ 
+    setHighlighted({i:l,j:r});
+     await sleep(speed);
+    arrayCopy[i++]=leftArray[l++];
+    setArray([...arrayCopy]); 
+    
+}
+
+   while(r<rightArray.length){
+    setHighlighted({i:l,j:r});
+     await sleep(speed);
+     arrayCopy[i++]=rightArray[r++];
+     setArray([...arrayCopy]); 
+    }
+
+
+    setSorted(()=>{
+      const updated=[];
+    for(let i=start;i<=end;i++) updated.push(i);
+    return updated;}
+    );
+     await sleep(speed);
 
 }
 
