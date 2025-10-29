@@ -12,11 +12,12 @@ const NavBar=()=>{
     const{createNewArray,setSpeed,setSorted}=useContext(ArrayContext);
     const[seletcedMethod,setSeletcedMethod]=useState("bubble");
     const[range,setRange]=useState(20);
+     const[time,SetTime]=useState(0);
     const bubbleSortFunction=useBubbleSort();
     const mergeSortFunction=useMergeSort();
     const insertionSortFunction=useInsertionSort();
     const selectionSortFunction=useSelectionSort();
-    const[time,SetTime]=useState(0);
+   
    
 const newMethod=(e)=>{
 
@@ -74,6 +75,7 @@ const sliderMax=1000;//ms
 const rangeChange=(e)=>{
 
     const newRange=Number(e.target.value);
+    setSorted([]);
     setRange(newRange);
     createNewArray(newRange);
     
