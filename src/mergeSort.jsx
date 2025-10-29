@@ -80,12 +80,17 @@ const merge=async(arrayCopy,start,middle,end)=>{
      setArray([...arrayCopy]); 
     }
 
-
     setSorted(()=>{
-      const updated=[];
-    for(let i=start;i<=end;i++) updated.push(i);
-    return updated;}
+
+     const updated=[];
+     for(let i=start;i<=end;i++) updated.push(i);
+     return updated;
+     
+   }
+
+
     );
+
      await sleep(speed);
 
 }
