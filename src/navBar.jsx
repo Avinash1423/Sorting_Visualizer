@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import {useBubbleSort} from "./bubbleSort";
 import { useMergeSort } from "./mergeSort";
 import { useInsertionSort } from "./insertionSort";
+import {useSelectionSort } from "./selectionSort";
 
 const NavBar=()=>{
 
@@ -14,6 +15,7 @@ const NavBar=()=>{
     const bubbleSortFunction=useBubbleSort();
     const mergeSortFunction=useMergeSort();
     const insertionSortFunction=useInsertionSort();
+    const selectionSortFunction=useSelectionSort();
     const[time,SetTime]=useState(0);
    
 const newMethod=(e)=>{
@@ -46,6 +48,13 @@ else if(seletcedMethod=="insertion"){
 
 
 insertionSortFunction();
+
+}
+
+else if(seletcedMethod=="selection"){
+
+
+selectionSortFunction();
 
 }
 

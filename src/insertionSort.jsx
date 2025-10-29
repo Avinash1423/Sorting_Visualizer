@@ -54,7 +54,7 @@ for(let i=0;i<arrayCopy.length;i++){
 
 }
 
-
+//setSorted([...Array(arrayCopy.length).keys()])
 setHighlighted({i:null,j:null});
 setArray(arrayCopy);
 }
