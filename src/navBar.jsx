@@ -6,17 +6,20 @@ import {useBubbleSort} from "./bubbleSort";
 import { useMergeSort } from "./mergeSort";
 import { useInsertionSort } from "./insertionSort";
 import {useSelectionSort } from "./selectionSort";
+import {useQuickSort} from "./quicksort";
+
 
 const NavBar=()=>{
 
     const{createNewArray,setSpeed,setSorted}=useContext(ArrayContext);
     const[seletcedMethod,setSeletcedMethod]=useState("bubble");
     const[range,setRange]=useState(20);
-     const[time,SetTime]=useState(0);
+    const[time,SetTime]=useState(0);
     const bubbleSortFunction=useBubbleSort();
     const mergeSortFunction=useMergeSort();
     const insertionSortFunction=useInsertionSort();
     const selectionSortFunction=useSelectionSort();
+    const quickSortFunction=useQuickSort();
    
    
 const newMethod=(e)=>{
@@ -56,6 +59,12 @@ else if(seletcedMethod=="selection"){
 
 
 selectionSortFunction();
+
+}
+else if(seletcedMethod=="quick"){
+
+
+quickSortFunction();
 
 }
 

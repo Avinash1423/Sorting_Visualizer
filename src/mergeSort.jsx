@@ -10,13 +10,11 @@ let arrayCopy=[...array];
 
 const mergeSortFunction=async()=>{
 
- 
 const mergeSort=async(arrayCopy,start,end)=> {
 
 if(start >= end) return;
 
 let middle=Math.floor((start+end)/2);
-
 
 await mergeSort(arrayCopy,start,middle);    // merge sort left array//outcome?
 await mergeSort(arrayCopy,middle+1,end);// merge right  array

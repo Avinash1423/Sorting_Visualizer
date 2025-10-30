@@ -41,7 +41,6 @@ const selectionSortFunnction=async()=>{
         setSorted(prev=>[...prev,i]);
         await sleep(speed);
 
-    
 
         
 
