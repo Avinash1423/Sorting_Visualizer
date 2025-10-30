@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useRef} from "react";
 import {useContext } from "react";
 import {ArrayContext} from "./ArrayGenerator";
 
@@ -10,6 +10,12 @@ export const useQuickSort=()=>{
     const sleep=(ms)=>new Promise(resolve=>setTimeout(resolve,ms));
 
      let arrayCopy=[...array];
+     const speedRef=useRef(speed);
+
+useEffect(()=>{
+    speedRef.current=speed
+},  [speed])
+
      const quickSortFunction=async()=>{
   
     const quickSort=async(start,end,arrayCopy)=>{
@@ -55,7 +61,7 @@ export const useQuickSort=()=>{
 
            j++;
            setHighlighted({i:i,j:j});
-           await sleep(speed);
+           await sleep(speedRef.current);
 
          
           let temp=arrayCopy[i];
@@ -64,10 +70,10 @@ export const useQuickSort=()=>{
 
           
             setArray([...arrayCopy]);
-            await sleep(speed);
+            await sleep(speedRef.current);
 
             setHighlighted({i:i,j:j});
-           await sleep(speed);
+           await sleep(speedRef.current);
 
         }
 
@@ -78,7 +84,7 @@ export const useQuickSort=()=>{
 
             j++;
            setHighlighted({i:i,j:j});
-           await sleep(speed);
+           await sleep(speedRef.current);
 
      
       let temp=arrayCopy[j];
@@ -86,11 +92,11 @@ export const useQuickSort=()=>{
       arrayCopy[pivot]=temp;
 
             setArray([...arrayCopy]);
-            await sleep(speed);
+            await sleep(speedRef.current);
 
             
           setHighlighted({i:i,j:j});
-           await sleep(speed);
+           await sleep(speedRef.current);
 
           
           

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { useContext } from "react";
 import { ArrayContext } from "./ArrayGenerator";
 
@@ -10,6 +10,12 @@ let arrayCopy=[...array];
 
 const sleep=(ms)=>new Promise((resolve=>setTimeout(resolve,ms)));
 
+const speedRef=useRef(speed);
+
+
+useEffect(()=>{
+speedRef.current=speed
+},[speed])
 
 const insertionSortFunction=async()=>{
 
@@ -21,7 +27,7 @@ for(let i=0;i<arrayCopy.length;i++){
     let j=i-1;
 
      setHighlighted({i:i,j:j});
-     await sleep(speed);
+     await sleep(speedRef.current);
 
     while(j>=0 && arrayCopy[j]>key){
 
@@ -30,11 +36,11 @@ for(let i=0;i<arrayCopy.length;i++){
       j--;
 
      setHighlighted({i:i,j:j});
-     await sleep(speed);
+     await sleep(speedRef.current);
     }
      
      setArray([...arrayCopy]);
-     await sleep(speed);
+     await sleep(speedRef.current);
 
     setSorted(()=>{
 
@@ -47,10 +53,10 @@ for(let i=0;i<arrayCopy.length;i++){
    return updated;
 })
 
-   await sleep(speed);
+   await sleep(speedRef.current);
    arrayCopy[j+1]=key;
  setArray([...arrayCopy]);
- await sleep(speed);
+ await sleep(speedRef.current);
 
 }
 

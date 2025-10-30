@@ -1,11 +1,16 @@
-import React from "react";
+import React , {useEffect, useRef}from "react";
 import { useContext } from "react";
 import { ArrayContext } from "./ArrayGenerator";
 
 export const useSelectionSort=()=>{
 
 const{array,setArray,setHighlighted,speed,setSorted}=useContext(ArrayContext);
+const speedRef=useRef(speed);
 
+useEffect(()=>{
+    speedRef.current=speed
+    
+},[speed])
 const selectionSortFunnction=async()=>{
      
     const sleep=(ms)=>new Promise(resolve=>(setTimeout(resolve,ms)));
@@ -20,13 +25,13 @@ const selectionSortFunnction=async()=>{
     for(let j=i+1;j<arrayCopy.length;j++){
 
         setHighlighted({i:min,j:j});
-        await sleep(speed);
+        await sleep(speedRef.current);
 
            if(arrayCopy[min]>arrayCopy[j]){
 
             min=j;
         setHighlighted({i:min,j:j});
-        await sleep(speed);
+        await sleep(speedRef.current);
            }
         }
 
@@ -35,14 +40,12 @@ const selectionSortFunnction=async()=>{
         arrayCopy[min]=temp;
 
         setArray([...arrayCopy]);
-        await sleep(speed);
+        await sleep(speedRef.current);
 
         
         setSorted(prev=>[...prev,i]);
-        await sleep(speed);
+        await sleep(speedRef.current);
 
-
-        
 
     }
 

@@ -7,9 +7,10 @@ export const ArrayContextProvider=(props)=>{
 
     const[array,setArray]=useState([]);
     const[speed,setSpeed]=useState(0);
+    const[run,setRun]=useState(false);
     //
-    const[highlighted,setHighlighted]=useState({i:null,j:null}); //bubbleSort
-    const[sorted,setSorted]=useState([]);//bubbleSort
+    const[highlighted,setHighlighted]=useState({i:null,j:null}); 
+    const[sorted,setSorted]=useState([]);
     
   
     
@@ -28,7 +29,7 @@ setArray(newArray);
 
 return (
 
-    <ArrayContext.Provider value={{createNewArray,array,setArray,highlighted,setHighlighted,speed,setSpeed,sorted,setSorted}}>
+    <ArrayContext.Provider value={{createNewArray,array,setArray,highlighted,setHighlighted,speed,setSpeed,sorted,setSorted,run,setRun}}>
         {props.children}
     </ArrayContext.Provider>
 

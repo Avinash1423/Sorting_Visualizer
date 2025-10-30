@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { useContext } from "react";
 import { ArrayContext } from "./ArrayGenerator";
 
@@ -6,6 +6,12 @@ import { ArrayContext } from "./ArrayGenerator";
 export const useBubbleSort=()=>{
 
 const{setArray,array,setHighlighted,speed,setSorted}=useContext(ArrayContext);
+
+const speedRef=useRef(speed);
+
+useEffect(()=>{
+speedRef.current=speed
+},[speed])
 
 const sleep=(ms)=>new Promise((resolve=>setTimeout(resolve,ms)));
  
@@ -24,7 +30,7 @@ const sleep=(ms)=>new Promise((resolve=>setTimeout(resolve,ms)));
        setHighlighted({i:j,j:j+1});
         
 
-       await sleep(speed);
+       await sleep(speedRef.current);
        if (arr[j]>arr[j+1]){
 
           let temp=arr[j];
@@ -34,7 +40,7 @@ const sleep=(ms)=>new Promise((resolve=>setTimeout(resolve,ms)));
  
          setArray([...arr]);  
          
-         await sleep(speed);
+         await sleep(speedRef.current);
       
        }
        setHighlighted({i:null,j:null});

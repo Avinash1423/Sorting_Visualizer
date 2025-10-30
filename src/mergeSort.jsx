@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { useContext } from "react";
 import { ArrayContext } from "./ArrayGenerator";
 
@@ -7,6 +7,12 @@ export const useMergeSort=()=>{
 const{array,setArray,setHighlighted,speed,setSorted}=useContext(ArrayContext);
 const sleep=(ms)=>new Promise((resolve=>setTimeout(resolve,ms)));  
 let arrayCopy=[...array];
+const speedRef=useRef(speed);
+
+
+useEffect(()=>{
+speedRef.current=speed
+},[speed])
 
 const mergeSortFunction=async()=>{
 
@@ -46,7 +52,7 @@ const merge=async(arrayCopy,start,middle,end)=>{
    while(l<leftArray.length && r<rightArray.length){
 
      setHighlighted({i:l,j:r});
-     await sleep(speed);
+     await sleep(speedRef.current);
 
    if(leftArray[l]<=rightArray[r]){
 
@@ -65,7 +71,7 @@ const merge=async(arrayCopy,start,middle,end)=>{
 
    while(l<leftArray.length){ 
     setHighlighted({i:l,j:r});
-     await sleep(speed);
+     await sleep(speedRef.current);
     arrayCopy[i++]=leftArray[l++];
     setArray([...arrayCopy]); 
     
@@ -73,7 +79,7 @@ const merge=async(arrayCopy,start,middle,end)=>{
 
    while(r<rightArray.length){
     setHighlighted({i:l,j:r});
-     await sleep(speed);
+     await sleep(speedRef.current);
      arrayCopy[i++]=rightArray[r++];
      setArray([...arrayCopy]); 
     }
@@ -89,7 +95,7 @@ const merge=async(arrayCopy,start,middle,end)=>{
 
     );
 
-     await sleep(speed);
+     await sleep(speedRef.current);
 
 }
 

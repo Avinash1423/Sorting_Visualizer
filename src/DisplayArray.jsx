@@ -5,7 +5,7 @@ import './DisplayArray.css'
 
 const DisplayArray=()=>{
 
-    const{array,highlighted,sorted}=useContext(ArrayContext);
+    const{array,highlighted,sorted,run}=useContext(ArrayContext);
     let arrayToDisplay=[];
 
     if(array){

@@ -11,10 +11,11 @@ import {useQuickSort} from "./quicksort";
 
 const NavBar=()=>{
 
-    const{createNewArray,setSpeed,setSorted}=useContext(ArrayContext);
+    const{createNewArray,setSpeed,setSorted,setRun,run}=useContext(ArrayContext);
     const[seletcedMethod,setSeletcedMethod]=useState("bubble");
     const[range,setRange]=useState(20);
     const[time,SetTime]=useState(0);
+    
     const bubbleSortFunction=useBubbleSort();
     const mergeSortFunction=useMergeSort();
     const insertionSortFunction=useInsertionSort();
@@ -29,15 +30,16 @@ setSeletcedMethod(e.target.value);
 
 }
 
-const sortButtonFunction=()=>{
+const sortButtonFunction=async()=>{
 
 if(!seletcedMethod){
 
     alert("Please select a Sorting Algorithm");
 }
 else if(seletcedMethod=="bubble"){
-
-bubbleSortFunction();
+setRun(true);
+await bubbleSortFunction();
+setRun(false);
 
 }
 
@@ -123,7 +125,7 @@ return(
       
 
 
-<div className="slider">
+<div className="slider" >
      <p className="arraySizeText">Array Size</p>
     <input 
     type="range"
@@ -131,6 +133,7 @@ return(
     max="100"
     value={range}
     onChange={rangeChange}
+    disabled={run}
     />
 </div>
 
@@ -146,7 +149,7 @@ return(
 </div>
 
 <div className="selectionList">
-<select id="sortingMethod" value={seletcedMethod} onChange={newMethod} >
+<select id="sortingMethod" value={seletcedMethod} onChange={newMethod}  disabled={run}>
    
     <option value="bubble">Bubble Sort</option>
     <option value="merge">Merge Sort</option>
@@ -156,8 +159,8 @@ return(
 </select>
 </div>
 
-<button className="sortButton" onClick={sortButtonFunction}>Sort</button>
-<button className="createNewArrayButton" onClick={createNewArrayButtonFunction}>Create New Array </button>
+<button className="sortButton" onClick={sortButtonFunction}  disabled={run}>Sort</button>
+<button className="createNewArrayButton" onClick={createNewArrayButtonFunction}  disabled={run}>Create New Array </button>
 
 </div>
 
