@@ -45,29 +45,29 @@ setRun(false);
 
 else if(seletcedMethod=="merge"){
 
-
-mergeSortFunction();
-
+setRun(true);
+await mergeSortFunction();
+setRun(false);
 }
 
 else if(seletcedMethod=="insertion"){
 
-
-insertionSortFunction();
-
+setRun(true);
+await insertionSortFunction();
+setRun(false);
 }
 
 else if(seletcedMethod=="selection"){
 
-
-selectionSortFunction();
-
+setRun(true);
+ await selectionSortFunction();
+setRun(false);
 }
 else if(seletcedMethod=="quick"){
 
-
-quickSortFunction();
-
+setRun(true);
+await quickSortFunction();
+setRun(false);
 }
 
 else {
