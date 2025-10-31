@@ -1,6 +1,6 @@
 import React, {useEffect, useRef} from "react";
 import {useContext } from "react";
-import {ArrayContext} from "./ArrayGenerator";
+import {ArrayContext} from "../ArrayGenerator";
 
 
 export const useQuickSort=()=>{

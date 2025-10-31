@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrayContext } from "./ArrayGenerator";
+import { ArrayContext } from "../../ArrayGenerator";
 import { useContext } from "react";
 import './DisplayArray.css'
 

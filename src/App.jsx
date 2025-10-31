@@ -1,7 +1,7 @@
 import './App.css'
-import NavBar from './navBar'
-import DisplayArray from './DisplayArray'
-import Footer from './Footer.jsx'
+import NavBar from './components/navBar/navBar.jsx'
+import DisplayArray from './components/display/DisplayArray.jsx'
+import Footer from './components/footer/Footer.jsx'
 
 function App() {
   return (

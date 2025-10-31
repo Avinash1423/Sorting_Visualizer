@@ -1,12 +1,12 @@
 import { useState,useContext } from "react"
 import  './navBar.css';
-import { ArrayContext } from "./ArrayGenerator";
+import { ArrayContext } from "../../ArrayGenerator";
 import { useEffect } from "react";
-import {useBubbleSort} from "./bubbleSort";
-import { useMergeSort } from "./mergeSort";
-import { useInsertionSort } from "./insertionSort";
-import {useSelectionSort } from "./selectionSort";
-import {useQuickSort} from "./quicksort";
+import {useBubbleSort} from "../../algorithms/bubbleSort";
+import { useMergeSort } from "../../algorithms/mergeSort";
+import { useInsertionSort } from "../../algorithms/insertionSort";
+import {useSelectionSort } from "../../algorithms/selectionSort";
+import {useQuickSort} from "../../algorithms/quicksort";
 
 
 const NavBar=()=>{
