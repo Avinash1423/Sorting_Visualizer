@@ -5,6 +5,7 @@
  padding:10px;
  border-bottom: 0.5px solid whitesmoke;
  height:30px;
+ justify-content: center;
 
 }
 
@@ -19,17 +20,43 @@
      
 }
 
-
-
-.selectionList{
-
-margin-right:30px;
-
+.selectionList select {
+     
+  margin-right:30px ;
+  background-color: #111;
+  color: #2aff6d;
+  border: 1px solid #2aff6d;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
 }
 
 .sortButton{
 
-margin-right:30px;
-border-color:white;
+  margin-right:30px;
+  background-color: #03b93d;
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
 
+}
+
+.createNewArrayButton{
+
+   margin-right:30px;
+  background-color: #04a838;
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+    
 }

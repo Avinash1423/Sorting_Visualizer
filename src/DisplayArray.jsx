@@ -32,7 +32,7 @@ return(
     backgroundColor:
   index === highlighted.i ? "#167c53ff" :     
   index === highlighted.j ? "#4c961cff" :      
-  sorted.includes(index) ? "#979c00ff" :       
+  sorted.includes(index) ? "#0cdf1eff" :       
   "#063944ff"                              
 
 
