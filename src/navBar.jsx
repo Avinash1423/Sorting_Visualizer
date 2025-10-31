@@ -11,8 +11,7 @@ import {useQuickSort} from "./quicksort";
 
 const NavBar=()=>{
 
-    const{createNewArray,setSpeed,setSorted,setRun,run}=useContext(ArrayContext);
-    const[seletcedMethod,setSeletcedMethod]=useState("bubble");
+    const{createNewArray,setSpeed,setSorted,setRun,run,seletcedMethod,setSeletcedMethod}=useContext(ArrayContext);
     const[range,setRange]=useState(20);
     const[time,SetTime]=useState(0);
     
@@ -150,7 +149,7 @@ return(
 
 <div className="selectionList">
 <select id="sortingMethod" value={seletcedMethod} onChange={newMethod}  disabled={run}>
-   
+    <option value="" disabled hidden>Select Sorting Method</option>
     <option value="bubble">Bubble Sort</option>
     <option value="merge">Merge Sort</option>
     <option value="insertion">Insertion Sort</option>

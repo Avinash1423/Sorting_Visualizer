@@ -5,7 +5,7 @@ import './DisplayArray.css'
 
 const DisplayArray=()=>{
 
-    const{array,highlighted,sorted,run}=useContext(ArrayContext);
+    const{array,highlighted,sorted,seletcedMethod}=useContext(ArrayContext);
     let arrayToDisplay=[];
 
     if(array){
@@ -40,13 +40,132 @@ return(
             margin: "1px",  
        
        }}
-          >
+        >
             </div>
 
     )
     
     )
 }
+
+</div>
+
+<div className="info">
+  { 
+  seletcedMethod==="bubble" &&
+  ( 
+    <>
+    <span className="timeComplexity">Time Complexity </span>
+     <table className="infoTable">
+      <thead>
+      <th>Best Case</th>
+      <th>Worst Case</th>
+      <th>Average Case</th>
+      <th style={{color:"blue",fontStyle:"oblique"}}>Space Complexity</th>
+      </thead>
+      <tbody>
+        <td>O(n)</td>
+        <td>O(n²)</td>
+        <td>O(n²)</td>
+        <td>O(1)</td>
+      </tbody>
+
+     </table>
+</>
+  ) 
+  }
+   { 
+  seletcedMethod==="merge" &&
+  ( 
+    <>
+    <span  className="timeComplexity">Time Complexity </span>
+     <table className="infoTable">
+      <thead>
+      <th>Best Case</th>
+      <th>Worst Case</th>
+      <th>Average Case</th>
+      <th style={{color:"blue",fontStyle:"oblique"}}>Space Complexity</th>
+      </thead>
+      <tbody>
+        <td>O(n log n)</td>
+        <td>O(n log n)</td>
+        <td>O(n log n)</td>
+        <td>O(n)</td>
+      </tbody>
+
+     </table>
+</>
+  ) 
+  }
+  { 
+  seletcedMethod==="insertion" &&
+  ( 
+    <>
+    <span  className="timeComplexity">Time Complexity </span>
+     <table className="infoTable">
+      <thead>
+      <th>Best Case</th>
+      <th>Worst Case</th>
+      <th>Average Case</th>
+      <th style={{color:"blue",fontStyle:"oblique"}}>Space Complexity</th>
+      </thead>
+      <tbody>
+        <td>O(n)</td>
+        <td>O(n²)</td>
+        <td>O(n²)</td>
+        <td>O(1)</td>
+      </tbody>
+
+     </table>
+</>
+  ) 
+  }
+  { 
+  seletcedMethod==="quick" &&
+  ( 
+    <>
+    <span  className="timeComplexity">Time Complexity </span>
+     <table className="infoTable">
+      <thead>
+      <th>Best Case</th>
+      <th>Worst Case</th>
+      <th>Average Case</th>
+      <th style={{color:"blue",fontStyle:"oblique"}}>Space Complexity</th>
+      </thead>
+      <tbody>
+        <td>O(n log n)</td>
+        <td>O(n²)</td>
+        <td>O(n log n)</td>
+        <td>O(log n)</td>
+      </tbody>
+
+     </table>
+</>
+  ) 
+  }
+  { 
+  seletcedMethod==="selection" &&
+  ( 
+    <>
+    <span  className="timeComplexity">Time Complexity </span>
+     <table className="infoTable">
+      <thead>
+      <th>Best Case</th>
+      <th>Worst Case</th>
+      <th>Average Case</th>
+      <th style={{color:"blue",fontStyle:"oblique"}}>Space Complexity</th>
+      </thead>
+      <tbody>
+        <td>O(n²)</td>
+        <td>O(n²)</td>
+        <td>O(n²)</td>
+        <td>O(1)</td>
+      </tbody>
+
+     </table>
+</>
+  ) 
+  }
 
 </div>
 

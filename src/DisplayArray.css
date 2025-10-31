@@ -6,6 +6,23 @@
     margin-left:150px;
     width:1000px;
     height:350px;
-    border: 1px solid #444;
+   
     
+}
+
+.info{
+
+    margin-left:100px;
+    margin-top:50px;
+}
+.timeComplexity{
+
+    margin-left:140px;
+    color:darkgreen;
+    font-style: oblique ;
+    font-weight:bold;
+}
+.infoTable{
+
+    border-spacing:40px 10px;
 }
