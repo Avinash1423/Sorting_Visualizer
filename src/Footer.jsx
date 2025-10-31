@@ -6,7 +6,7 @@ const Footer=()=>{
     return(
    <>
     <div className='footer'>
-    <p className='text'>  Avinash Niyas. University of Moratuwa.©</p>
+    <p className='text'>Avinash Niyas | University of Moratuwa.</p>
     </div>
    </>
     );
